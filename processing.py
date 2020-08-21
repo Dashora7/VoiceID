@@ -8,8 +8,11 @@ from pyAudioAnalysis import audioSegmentation as ag
 from pyAudioAnalysis import audioBasicIO as aIO
 from scipy.io.wavfile import write
 
-duration = 10
+duration = 15
 fs = 44100
+
+print(sd.query_devices())
+
 
 print('recording now!')
 sample = sd.rec(int(duration*fs), samplerate=fs, channels=2)

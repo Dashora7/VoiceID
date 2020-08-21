@@ -14,8 +14,9 @@ class VoiceIDSys:
         # A user dictionary with name:centroid
         self.users = {}
         self.encoder = VoiceEncoder()
+        sd.default.device = 'Microphone (GENERAL WEBCAM)'
 
-    def save_sounds(self, duration=10, fs=4100):
+    def save_sounds(self, duration=10, fs=44100):
         print('recording now!')
         sample = sd.rec(int(duration * fs), samplerate=fs, channels=2)
         sd.wait()
@@ -62,9 +63,7 @@ if __name__=='__main__':
 
     sys = VoiceIDSys()
     my_profile = sys.generate_voice_profile('C:\\Users\\nrdas\\Downloads\\VoiceID\\data\\nitish')
-    my_profile2 = sys.generate_voice_profile('C:\\Users\\nrdas\\Downloads\\VoiceID\\data\\nitish_on_new_mic')
     sys.add_user('nitish', my_profile)
-    sys.add_user('nitishv2', my_profile2)
     voice, path = sys.save_sounds()
     sys.id_subject(path)
-    os.remove(path)
+    #os.remove(path)
