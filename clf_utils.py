@@ -5,6 +5,7 @@ import numpy as np
 import sounddevice as sd
 from scipy.io.wavfile import write
 from sklearn.linear_model import Perceptron
+
 de = r'C:\Users\nrdas\Downloads\VoiceID'
 os.chdir(de)
 
